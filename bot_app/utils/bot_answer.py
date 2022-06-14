@@ -14,8 +14,9 @@ answers = ['Нет, так делать не стоит!',
 
 
 async def send_answer(user_id):
+    bot_data = await bot.get_me()
     message = await bot.send_message(user_id,
                            f'<b>Ответ от администрации:</b>\n'
                            f'{random.choice(answers)}',
-                           reply_markup=markup.user_m.new_admin_answer_markup(user_id))
+                           reply_markup=markup.user_m.new_admin_answer_markup(user_id, bot_data.id))
     await db.message.new_bot_message(message)

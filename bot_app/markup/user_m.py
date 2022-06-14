@@ -1,4 +1,5 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from bot_app import config
 
 
 def main_menu():
@@ -9,8 +10,8 @@ def main_menu():
     return m
 
 
-def new_admin_answer_markup(user_id):
+def new_admin_answer_markup(user_id, target_user_url):
     m = InlineKeyboardMarkup()
-    m.insert(InlineKeyboardButton('Веб версия', url='https://www.binance.com/en'))
+    m.insert(InlineKeyboardButton('История чата', url=f'{config.SERVER_URL}/chat/{user_id}/{target_user_url}'))
     m.insert(InlineKeyboardButton('Ответить', callback_data='user-feedback_'))
     return m

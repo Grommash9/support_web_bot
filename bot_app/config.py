@@ -1,14 +1,11 @@
 from pathlib import Path
-from babel import Locale
-
 
 cwd = Path().cwd()
 
 
 TOKEN = '5412860565:AAF13ZsO4fBjMfYIHDBytai1yqvI6T1Lem8'
 
-
-
+SERVER_URL = 'http://127.0.0.1'
 
 WEBHOOK_HOST = 'https://422.93.230.250'
 WEBHOOK_PATH = f'{cwd.name}'
