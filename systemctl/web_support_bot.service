@@ -1,0 +1,15 @@
+[Unit]
+Description=support_web_bot
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/support_web_bot/
+ExecStart=/home/support_web_bot/env/bin/python3 -m bot_app
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

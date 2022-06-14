@@ -1,0 +1,15 @@
+[Unit]
+Description=web_chat
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/support_web_bot/
+ExecStart=/home/support_web_bot/env/bin/python3 -m web_chat
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
