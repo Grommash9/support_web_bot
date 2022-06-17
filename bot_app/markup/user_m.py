@@ -12,6 +12,6 @@ def main_menu():
 
 def new_admin_answer_markup(user_id, target_user_id):
     m = InlineKeyboardMarkup()
-    m.insert(InlineKeyboardButton('История чата', url=f'{config.WEBHOOK_HOST}/chat/{user_id}/{target_user_id}'))
+    m.insert(InlineKeyboardButton('История чата', url=f'http://159.223.225.42:8000/chat/{user_id}/{target_user_id}'))
     m.insert(InlineKeyboardButton('Ответить', callback_data='user-feedback_'))
     return m

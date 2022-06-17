@@ -7,7 +7,7 @@ from bot_app.misc import routes, bot
 from starlette.requests import Request
 
 
-@routes.post('/support_web_bot/new_message/')
+@routes.post('/support_web_bot_api/new_message/')
 async def get_handler(request):
     from_user = int(request.query['message_from'])
     to_user = int(request.query['message_to'])

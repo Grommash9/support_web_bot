@@ -21,7 +21,7 @@ async def hello_world(request: Request, my_id: int, target_user_id: int):
 @app.post('/chat/{my_id}/{target_user_id}')
 async def hello_world(request: Request, message: str = Form(...), message_from: int = Form(...), message_to: int = Form(...)):
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"https://72a9-176-98-90-146.eu.ngrok.io/support_web_bot/new_message/?message={message}&message_from={message_from}&message_to={message_to}") as resp:
+        async with session.post(f"https://159.223.225.42/support_web_bot_api/new_message/?message={message}&message_from={message_from}&message_to={message_to}", verify_ssl=False) as resp:
             print(resp.status)
             messages = await db.message.get_correspondence(message_from, message_to)
             return templates.TemplateResponse("chat.html", {"messages": messages, "request": request,

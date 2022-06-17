@@ -6,7 +6,7 @@ cwd = Path().cwd()
 TOKEN = '5412860565:AAHCWYSoAwDn7yK2vrPqoKcpkba-SMnO9gE'
 
 
-WEBHOOK_HOST = 'http://142.93.230.250'
+WEBHOOK_HOST = 'https://159.223.225.42'
 WEBHOOK_PATH = f'{cwd.name}'
 WEBHOOK_URL = f"{WEBHOOK_HOST}/{WEBHOOK_PATH}/"
 
