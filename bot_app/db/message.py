@@ -19,3 +19,12 @@ async def new_bot_message(message: Message):
                       (message.from_user.id, message.chat.id, message.message_id, message.text, message.date))
     await con.commit()
     await con.ensure_closed()
+
+
+async def new_web_message(message: Message, from_user, to_user):
+    con, cur = await create_dict_con()
+    await cur.execute('insert into message (message_from, message_to, message_id, message_text, date) '
+                      'values (%s, %s, %s, %s, %s)',
+                      (from_user, to_user, message.message_id, message.text, message.date))
+    await con.commit()
+    await con.ensure_closed()

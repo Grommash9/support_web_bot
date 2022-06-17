@@ -9,5 +9,19 @@
     {% for message in messages %}
         <li> {{ message.date }} <b> {{ message.message_text }} </b> </li>
     {% endfor %}
+
+
+<div class="container">
+            <form action="/chat/{{ message_from }}/{{ message_to }}/" enctype="multipart/form-data" method="post">
+                <input type="hidden" name="message_from" value="{{ message_from }}" />
+                <input type="hidden" name="message_to" value="{{ message_to }}" />
+                <label>Введите ответ: </label>
+                <br>
+                <input name="message" type="message" >
+                <br>
+                <input type="submit">
+            </form>
+        </div> <!-- /container -->
+
 </body>
 </html>

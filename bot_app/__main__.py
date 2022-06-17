@@ -7,8 +7,8 @@ from bot_app.misc import dp, bot, routes
 
 
 async def on_startup(_dispatcher):
-    #await bot.set_webhook(config.WEBHOOK_URL)
-    await bot.set_webhook(config.WEBHOOK_URL, certificate=open('/etc/nginx/ssl/nginx.crt', 'r'))
+    await bot.set_webhook(config.WEBHOOK_URL)
+    #await bot.set_webhook(config.WEBHOOK_URL, certificate=open('/etc/nginx/ssl/nginx.crt', 'r'))
     print(await bot.get_webhook_info())
     print(await bot.get_me())
 
@@ -26,9 +26,9 @@ def setup_bot(app: web.Application):
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
-    # app = get_new_configured_app(dispatcher=dp, path=f'/{config.WEBHOOK_PATH}/')
-    # app.add_routes(routes)
-    # setup_bot(app)
-    # web.run_app(app, **config.BOT_SERVER)
+    #executor.start_polling(dp, skip_updates=True)
+    app = get_new_configured_app(dispatcher=dp, path=f'/{config.WEBHOOK_PATH}/')
+    app.add_routes(routes)
+    setup_bot(app)
+    web.run_app(app, **config.BOT_SERVER)
 
